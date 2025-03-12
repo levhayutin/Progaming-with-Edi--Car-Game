@@ -74,11 +74,14 @@ while running:
             running = False
         if event.type == KEYDOWN:
             # move user car to the left
-            if event.key in [K_a, K_LEFT]:
+            if event.key in [K_a, K_LEFT] and car_loc[0] > 150:
+                #print("LEFT_0: " + str(car_loc))
                 car_loc = car_loc.move([-int(road_w/2), 0])
             # move user car to the right
-            if event.key in [K_d, K_RIGHT]:
+            if event.key in [K_d, K_RIGHT] and car_loc[0] < 151:
+                #print("RIGHT_0: " + str(car_loc))
                 car_loc = car_loc.move([int(road_w/2), 0])
+                #print("RIGHT_1: " + str(car_loc))
 
                 # draw road
     pygame.draw.rect(
